@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center cursor-pointer">
           <img
             src={logo}
             alt="Dev Stack"
@@ -37,11 +37,11 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm text-gray-600">
+          <button className="text-sm text-gray-600 cursor-pointer">
             Sign In
           </button>
 
-          <button className="text-sm text-white px-5 py-2 rounded-full bg-linear-to-r from-orange-500 via-pink-500 to-violet-500">
+          <button className="text-sm text-white px-5 py-2 rounded-full bg-linear-to-r from-orange-500 via-pink-500 to-violet-500 cursor-pointer">
             Sign Up
           </button>
         </div>

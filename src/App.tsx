@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ITechnology } from "./Types/technologiestype";
 import Navbar from "./Componets/Navbar";
+import Hero from "./Componets/Hero";
 
 const App = () => {
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <>
     <Navbar/>
+    <Hero/>
     <div>
       <h1 className="text-4xl font-bold text-center mt-20">
         Dev Stack Builder
