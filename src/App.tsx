@@ -3,9 +3,11 @@ import type { ITechnology } from "./Types/technologiestype";
 import Navbar from "./Componets/Navbar";
 import Hero from "./Componets/Hero";
 import TechnologyCard from "./Componets/TechnologyCard";
+import YourStack from "./Componets/YourStack";
 
 const App = () => {
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
+  const [stack, setStack] = useState<ITechnology[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,6 +29,24 @@ const App = () => {
     return <h1 className="text-center mt-20">Loading technologies...</h1>;
   }
 
+  const handleAddToStack = (technology: ITechnology) => {
+    const isAlreadyAdded = stack.some((item) => item.id === technology.id);
+
+    if (isAlreadyAdded) {
+      return;
+    }
+
+    setStack([...stack, technology]);
+  };
+
+  const handleRemoveFromStack = (id: string) => {
+    setStack(stack.filter((item) => item.id !== id));
+  };
+
+  const handleRemoveAll = () => {
+    setStack([]);
+  };
+
   return (
     <>
       <Navbar />
@@ -47,13 +67,23 @@ const App = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technologies.map((technology) => (
-            <TechnologyCard
-              key={technology.id}
-              technology={technology}
-            />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {technologies.map((technology) => (
+                <TechnologyCard
+                  key={technology.id}
+                  technology={technology}
+                  stack={stack}
+                  onAddToStack={handleAddToStack}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <YourStack stack={stack} onRemove={handleRemoveFromStack} onRemoveAll={handleRemoveAll}/>
+          </div>
         </div>
       </main>
     </>

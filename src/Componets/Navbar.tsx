@@ -1,7 +1,10 @@
-import { FaBars } from "react-icons/fa";
+import { useState } from "react";
 import logo from "../assets/logo-text.png";
+import hamburger from "../assets/hamburger.png";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -9,7 +12,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center cursor-pointer">
           <img
             src={logo}
-            alt="Dev Stack"
+            alt="Dev Stack Logo"
             className="w-28"
           />
         </div>
@@ -47,8 +50,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex md:hidden items-center justify-between w-full">
-          <button className="text-gray-700 text-lg">
-            <FaBars />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="cursor-pointer"
+          >
+            <img
+              src={hamburger}
+              alt="Menu"
+              className="w-6 h-6"
+            />
           </button>
 
           <img
@@ -58,17 +68,62 @@ const Navbar = () => {
           />
 
           <div className="flex items-center gap-2">
-            <button className="text-xs text-gray-600">
+            <button className="text-xs text-gray-600 cursor-pointer">
               Sign In
             </button>
 
-            <button className="text-xs text-white px-3 py-1.5 rounded-full bg-linear-to-r from-orange-500 via-pink-500 to-violet-500">
+            <button className="text-xs text-white px-3 py-1.5 rounded-full bg-linear-to-r from-orange-500 via-pink-500 to-violet-500 cursor-pointer">
               Sign Up
             </button>
           </div>
         </div>
-
       </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="flex flex-col px-4 py-4 gap-4 text-sm">
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-pink-500 font-medium"
+            >
+              Home
+            </a>
+
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-500 hover:text-pink-500"
+            >
+              Technologies
+            </a>
+
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-500 hover:text-pink-500"
+            >
+              Projects
+            </a>
+
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-500 hover:text-pink-500"
+            >
+              About
+            </a>
+
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-500 hover:text-pink-500"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
