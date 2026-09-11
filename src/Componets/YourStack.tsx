@@ -7,6 +7,10 @@ interface YourStackProps {
 }
 
 const YourStack = ({ stack, onRemove, onRemoveAll }: YourStackProps) => {
+
+
+
+
   return (
     <div className="border border-gray-200 rounded-xl p-5 bg-white">
       <h2 className="text-lg font-semibold">Your Stack</h2>

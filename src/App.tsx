@@ -4,6 +4,8 @@ import Navbar from "./Componets/Navbar";
 import Hero from "./Componets/Hero";
 import TechnologyCard from "./Componets/TechnologyCard";
 import YourStack from "./Componets/YourStack";
+import { toast, ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
@@ -30,21 +32,51 @@ const App = () => {
   }
 
   const handleAddToStack = (technology: ITechnology) => {
-    const isAlreadyAdded = stack.some((item) => item.id === technology.id);
-
-    if (isAlreadyAdded) {
-      return;
-    }
-
     setStack([...stack, technology]);
+
+    toast.success("added to your stack!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Zoom,
+    });
   };
 
   const handleRemoveFromStack = (id: string) => {
     setStack(stack.filter((item) => item.id !== id));
+
+    toast.info("removed from your stack!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Zoom,
+    });
   };
 
   const handleRemoveAll = () => {
     setStack([]);
+
+    toast.info("All technologies removed from your stack!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Zoom,
+    });
   };
 
   return (
@@ -82,10 +114,16 @@ const App = () => {
           </div>
 
           <div className="lg:col-span-1">
-            <YourStack stack={stack} onRemove={handleRemoveFromStack} onRemoveAll={handleRemoveAll}/>
+            <YourStack
+              stack={stack}
+              onRemove={handleRemoveFromStack}
+              onRemoveAll={handleRemoveAll}
+            />
           </div>
         </div>
       </main>
+
+      <ToastContainer />
     </>
   );
 };
