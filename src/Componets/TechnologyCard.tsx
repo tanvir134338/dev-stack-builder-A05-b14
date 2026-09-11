@@ -62,7 +62,7 @@ const TechnologyCard = ({
           {technology.description}
         </p>
 
-        <div className="flex items-center justify-between mt-4 text-xs">
+        <div className="flex items-center justify-between mt-4 text-xs font-semibold text-[#475569] ">
           <span className="px-2 py-1 rounded-md bg-gray-100">
             {technology.category}
           </span>
@@ -71,7 +71,7 @@ const TechnologyCard = ({
             {technology.difficulty}
           </span>
 
-          <span className="flex items-center gap-1 text-black">
+          <span className="flex items-center gap-1 text-black font-semibold">
             <FaStar className="text-sm text-[#FBBF24]"  />
             {technology.rating}
           </span>
