@@ -71,8 +71,8 @@ const TechnologyCard = ({
             {technology.difficulty}
           </span>
 
-          <span className="flex items-center gap-1 text-yellow-500">
-            <FaStar className="text-sm" />
+          <span className="flex items-center gap-1 text-black">
+            <FaStar className="text-sm text-[#FBBF24]"  />
             {technology.rating}
           </span>
         </div>
