@@ -32,9 +32,7 @@ const TechnologyCard = ({
   return (
     <div
       className={`rounded-xl p-px ${
-        isAdded
-          ? "bg-linear-to-r from-orange-500 via-pink-500 to-violet-500"
-          : "bg-gray-200"
+        isAdded ? "brand-gradient" : "bg-gray-200"
       }`}
     >
       <div className="rounded-[11px] p-4 bg-white shadow-sm">
@@ -54,25 +52,21 @@ const TechnologyCard = ({
           </span>
         </div>
 
-        <h3 className="text-lg font-semibold mt-4">
-          {technology.name}
-        </h3>
+        <h3 className="text-lg font-semibold mt-4">{technology.name}</h3>
 
         <p className="text-sm text-gray-500 mt-2 leading-5">
           {technology.description}
         </p>
 
-        <div className="flex items-center justify-between mt-4 text-xs font-semibold text-[#475569] ">
+        <div className="flex items-center justify-between mt-4 text-xs font-semibold text-[#475569]">
           <span className="px-2 py-1 rounded-md bg-gray-100">
             {technology.category}
           </span>
 
-          <span className="text-gray-500">
-            {technology.difficulty}
-          </span>
+          <span className="text-gray-500">{technology.difficulty}</span>
 
           <span className="flex items-center gap-1 text-black font-semibold">
-            <FaStar className="text-sm text-[#FBBF24]"  />
+            <FaStar className="text-sm text-[#FBBF24]" />
             {technology.rating}
           </span>
         </div>
@@ -82,7 +76,7 @@ const TechnologyCard = ({
           disabled={isAdded}
           className={`w-full mt-4 py-2 rounded-lg text-sm cursor-pointer ${
             isAdded
-              ? "bg-linear-to-r from-orange-400 via-pink-400 to-violet-400 text-black cursor-not-allowed font-semibold"
+              ? "brand-gradient text-black cursor-not-allowed font-semibold"
               : "bg-gray-900 text-white"
           }`}
         >

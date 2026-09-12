@@ -6,6 +6,7 @@ import TechnologyCard from "./Componets/TechnologyCard";
 import YourStack from "./Componets/YourStack";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Componets/Footer";
 
 const App = () => {
   const [technologies, setTechnologies] = useState<ITechnology[]>([]);
@@ -89,9 +90,7 @@ const App = () => {
         <div className="mb-8">
           <h2 className="text-3xl font-bold">
             Explore the{" "}
-            <span className="bg-linear-to-r from-orange-500 via-pink-500 to-violet-500 bg-clip-text text-transparent">
-              Technologies
-            </span>
+            <span className="brand-gradient-text">Technologies</span>
           </h2>
 
           <p className="text-gray-500 mt-2">
@@ -124,6 +123,7 @@ const App = () => {
       </main>
 
       <ToastContainer />
+      <Footer />
     </>
   );
 };
