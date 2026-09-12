@@ -1,4 +1,4 @@
-# ⚡ Dev Stack
+ ⚡ Dev Stack
 
  Build your ideal development stack — explore, compare, and choose the technologies that fit your next project.
 
@@ -6,7 +6,7 @@ Dev Stack is a responsive React application that helps developers explore modern
 
 ---
 
-## 🚀 Features
+ 🚀 Features
 
 - 🔍 **Explore Technologies** — Browse frontend, backend, database, language, styling, DevOps, and tools.
 - 🧩 **Build Your Stack** — Add technologies to your personal development stack.
@@ -18,7 +18,7 @@ Dev Stack is a responsive React application that helps developers explore modern
 
 ---
 
-## 🛠️ Technologies Used
+ 🛠️ Technologies Used
 
 | Technology | Purpose |
 |------------|---------|
@@ -31,7 +31,7 @@ Dev Stack is a responsive React application that helps developers explore modern
 
 ---
 
-## 📂 Project Structure
+ 📂 Project Structure
 
 ```text
 src/
